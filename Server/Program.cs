@@ -18,8 +18,11 @@ namespace Server
             TcpClient client = listener.AcceptTcpClient(); //prijmuti klienta
             NetworkStream stream = client.GetStream();
             StreamReader sr = new StreamReader(stream);
+            StreamWriter sw = new StreamWriter(stream); 
             Console.WriteLine(sr.ReadLine()); //pockame si co nam poslou XD
-            Console.WriteLine(sr.ReadLine()); 
+            Console.WriteLine(sr.ReadLine());
+            sw.WriteLine("192.168.2.106");
+            sw.Flush();
             Console.ReadKey();
         }
     }

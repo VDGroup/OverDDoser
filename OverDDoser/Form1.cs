@@ -15,6 +15,7 @@ namespace OverDDoser
 {
     public partial class Form1 : Form
     {
+        public NetworkStream stream;
         public Form1()
         {
             InitializeComponent();
@@ -32,11 +33,13 @@ namespace OverDDoser
                 string address = textBox1.Text;
                 TcpClient client = new TcpClient();
                 client.Connect(address, 45456);
-                NetworkStream stream = client.GetStream();
+                stream = client.GetStream();
+                //TO bude ono :D
                 StreamWriter sw = new StreamWriter(stream);
                 sw.WriteLine(textBox2.Text);
                 sw.WriteLine(textBox3.Text);
                 sw.Flush(); //tohle odesle data
+                this.Close();
             }
             catch { }
         }
