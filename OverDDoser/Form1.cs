@@ -7,6 +7,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Net;
+using System.Net.Sockets;
+using System.IO;
 
 namespace OverDDoser
 {
@@ -20,6 +23,22 @@ namespace OverDDoser
         private void Form1_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                string address = textBox1.Text;
+                TcpClient client = new TcpClient();
+                client.Connect(address, 45456);
+                NetworkStream stream = client.GetStream();
+                StreamWriter sw = new StreamWriter(stream);
+                sw.WriteLine(textBox2.Text);
+                sw.WriteLine(textBox3.Text);
+                sw.Flush(); //tohle odesle data
+            }
+            catch { }
         }
     }
 }
