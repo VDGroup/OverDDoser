@@ -4,7 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace OverDDoser
+namespace OverDDoserClient
 {
     static class Program
     {
@@ -12,12 +12,10 @@ namespace OverDDoser
         /// The main entry point for the application.
         /// </summary>
         [STAThread]
-        static void Main(string[] Args) 
+        static void Main()
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            OverDDoser a = new OverDDoser(Args);
-            List<int> b = new List<int>();
             
         }
     }

