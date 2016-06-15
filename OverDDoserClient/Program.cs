@@ -16,7 +16,8 @@ namespace OverDDoserClient
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            
+            ClientWindow c = new ClientWindow();
+            c.ShowDialog();
         }
     }
 }
