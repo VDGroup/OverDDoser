@@ -21,5 +21,4 @@ namespace OverDDoserClient
         }
     }
 }
-// bubabaadsaa
-//XDDDDD
+// bubaba
